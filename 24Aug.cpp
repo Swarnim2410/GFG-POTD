@@ -1,5 +1,4 @@
   public:
-    /*You are required to complete below function */
     string multiplyStrings(string s1, string s2) 
     {
         if(s1=="0"||s2=="0")
