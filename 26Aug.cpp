@@ -1,4 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
 
+}
 class Solution{
   public:
     int longestKSubstr(string s, int k) 
