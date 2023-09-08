@@ -17,7 +17,7 @@ class Solution
 public:
     int getCount(Node *root, int k)
     {
-        queue<Node *>q;
+        queue<Node*>q;
         q.push(root);
         int level = 0;
         int cnt = 0;
