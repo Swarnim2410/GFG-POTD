@@ -33,14 +33,24 @@ class Solution
         
         // return dp[n]%mod;
         
-        vector<long long>dp(3,-1);
-        dp[0] = 1;
-        dp[1] = 1;
-        dp[2] = 2;
+        long long prev3 = 1;
+        long long prev2 = 1;
+        long long prev1 = 2;
+        if(n==0)
+        {
+            return 0;
+        }
+        if(n==1)
+        {
+            return 1;
+        }
         for(int i=3;i<=n;i++)
         {
-            dp[i%3] = (dp[(i-1)%3] + dp[(i-2)%3] + dp[(i-3)%3])%mod; 
+            int curr = (prev1 + prev2 + prev3)%mod; 
+            prev3 = prev2;
+            prev2 = prev1;
+            prev1 = curr;
         }
-        return dp[n%3]%mod;
+        return prev1%mod;
     }
 };
