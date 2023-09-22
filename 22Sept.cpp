@@ -1,55 +1,55 @@
 
-    public:
-    vector<int> find(int nums[], int a , int target)
+public:
+vector<int> find(int nums[], int a, int target)
+{
+    int s = 0;
+    vector<int> v;
+    // int a = nums.size();
+    int e = a - 1;
+    int ans1 = -1;
+    int m = s + (e - s) / 2;
+    while (s <= e)
     {
-        int s=0;
-        vector<int>v;
-        //int a = nums.size();
-        int e=a-1;
-        int ans1 =-1;
-        int m = s+(e-s)/2;
-        while(s<=e)
+        if (nums[m] == target)
         {
-             if(nums[m]==target)
-             {
-                 ans1 = m;
-                 e = m-1;
-             }
-             else if(target>nums[m])
-             {
-                 s=m+1;
-             }
-             else if(target<nums[m])
-             {
-                 e=m-1;
-             }
-             m = s+(e-s)/2;
+            ans1 = m;
+            e = m - 1;
         }
-
-        s=0;
-        //a = nums.size();
-        e=a-1;
-        int ans2 =-1;
-        m = s+(e-s)/2;
-        while(s<=e)
+        else if (target > nums[m])
         {
-             if(nums[m]==target)
-             {
-                 ans2 = m;
-                 s = m+1;
-             }
-             else if(target>nums[m])
-             {
-                 s=m+1;
-             }
-             else if(target<nums[m])
-             {
-                 e=m-1;
-             }
-             m = s+(e-s)/2;
+            s = m + 1;
         }
-        v.push_back(ans1);
-        v.push_back(ans2);
-        return v;
-        // code here
+        else if (target < nums[m])
+        {
+            e = m - 1;
+        }
+        m = s + (e - s) / 2;
     }
+
+    s = 0;
+    // a = nums.size();
+    e = a - 1;
+    int ans2 = -1;
+    m = s + (e - s) / 2;
+    while (s <= e)
+    {
+        if (nums[m] == target)
+        {
+            ans2 = m;
+            s = m + 1;
+        }
+        else if (target > nums[m])
+        {
+            s = m + 1;
+        }
+        else if (target < nums[m])
+        {
+            e = m - 1;
+        }
+        m = s + (e - s) / 2;
+    }
+    v.push_back(ans1);
+    v.push_back(ans2);
+    return v;
+    // code here
+}
